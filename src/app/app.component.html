@@ -1,0 +1,94 @@
+<div class="container">
+  <form [formGroup]="myForm" (ngSubmit)="formSubmit()" class="custm-detailes">
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%"
+      class="borderless-table">
+      <tbody>
+        <tr>
+          <th width="100px;" align="left">Name</th>
+          <td width="10px" align="center">:</td>
+          <td width="auto">
+            <input type="text" class="textbox" placeholder="Enter Name"
+              formControlName="empName" />
+            <small
+              *ngIf="myForm.get('empName').invalid && myForm.get('empName').touched">
+              *Name is Mandatory
+            </small>
+          </td>
+        </tr>
+
+        <tr>
+          <th align="left">Employee ID</th>
+          <td align="center">:</td>
+          <td> <input type="number" class="textbox"
+              placeholder="Enter Employee ID"
+              formControlName="empId" />
+            <small
+              *ngIf="myForm.get('empId').invalid && myForm.get('empId').touched">
+              *Employee ID is Mandatory
+            </small></td>
+
+        </tr>
+        <tr>
+          <th align="left">City </th>
+          <td align="center">:</td>
+          <td><select name="city" class="textbox" formControlName="city">
+              <option value selected>Select City</option>
+              <option>New York</option>
+              <option>London</option>
+              <option>Tokyo</option>
+            </select>
+            <small
+              *ngIf="myForm.get('city').invalid && myForm.get('city').touched">
+              Please select an option.
+            </small></td>
+        </tr>
+        <tr>
+          <th align="left">Gender</th>
+          <td align="center">:</td>
+          <td>
+            <label *ngFor="let gen of genderList">
+              <input type="radio" name="gender" [value]="gen.label" formControlName="gender" />
+              {{ gen.label }}
+            </label>
+            <small *ngIf="myForm.get('gender').invalid && myForm.get('gender').touched">
+              Please select an option.
+            </small>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center">
+            <button class="buttons"
+              [ngClass]="!myForm.valid ? 'buttons-dis':''" [disabled]="!myForm.valid">Save</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </form>
+
+  <ng-container *ngIf="customerList.length>0">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%"
+      class="table-grid">
+      <thead>
+        <tr>
+          <th width="100px" align="left">Manage</th>
+          <th width="auto" align="left">Name</th>
+          <th width="200px" align="left">Employee ID</th>
+          <th width="200px" align="left">City</th>
+          <th width="200px" align="left">Gender</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let itm of customerList | dateSort: sortOrder">
+        <tr>
+          <td><i class="fas fa-edit" (click)="editReq(itm)"></i></td>
+          <td>{{itm.empName}}</td>
+          <td>{{itm.empId}}</td>
+          <td>{{itm.city}}</td>
+          <td>{{itm.gender}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+</div>

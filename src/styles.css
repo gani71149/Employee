@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+*                        { box-sizing: border-box;}
+body                     { margin: 0px;padding:0px;font-family: 'Roboto' ,arial,verdana,tahoma;}
+html,body                { height:100%;}
+
+input, button, select, textarea{margin:0px;}
+textarea                  { resize:vertical;}
+button                    { cursor:pointer;}
+.textbox                  {padding:5px; font-size:1em; color: #555; width:100%;  border: 1px solid #ccc;  border-radius: 2px;}
+.container                {height:100%;  margin:15px;}
+
+
+app-root                  {display: block; height: 100%;}
+
+.custm-detailes           {    width: 400px;
+  margin: auto;
+  height: 250px;
+  border: 1px solid #cbcbcb;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px #cbcbcb; ;}
+  .buttons                  {border:transparent; padding:5px 10px; background: #060660; border-radius: 3px; color:#ffffff;}
+  .buttons-dis              { background: #959596; }
+
+
+  .borderless-table  th, td      {padding:5px; border: none !important;}
+  .table-grid                    {margin-top: 20px;}
+  .table-grid {border-collapse: collapse;}
+  .table-grid th, .table-grid td { border: 1px solid #cbcbcb !important; padding:10px;}
+
